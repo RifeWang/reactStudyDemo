@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+    <title>hello world</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="rifewang"/>
+    <meta name="keywords" content="react study demo"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom.js"></script>
+    <!-- babel 将 JSX 语法转化为 js 以供浏览器解析 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.js"></script>
+
+    <!-- 服务端渲染 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-dom-server.js"></script> -->
+    <!-- 实验性质的工具库 -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.6.1/react-with-addons.js"></script> -->
+
+</head>
+<body>
+    <div id="mydiv"></div>
+
+    <!-- JSX 语法必须声明 type="text/babel"-->
+    <script type="text/babel">
+    class Hello extends React.Component {
+        render(){
+            return (
+                <h1>React Component !</h1>
+            )
+        }
+    }
+    ReactDOM.render(
+        <Hello />,
+        document.getElementById('mydiv')
+    );
+    </script>
+</body>
+</html>
