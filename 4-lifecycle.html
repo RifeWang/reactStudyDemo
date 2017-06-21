@@ -22,35 +22,72 @@
     <!-- JSX 语法必须声明 type="text/babel"-->
     <script type="text/babel">
 
-        class PropsAndState extends React.Component {
+        class Lifecycle extends React.Component {
+            // Mounting 阶段
+            //
+            //默认属性，es5的写法为 getDefaultProps()
+            static defaultProps = {
+                defProp: '默认的属性',
+            }
+            //初始化状态，es5的写法为 getInitialState
             constructor(props){
                 super(props);
                 this.state = {
-                    stateName: 1,
+                    stateName: '初始化的状态',
                 }
             }
-            stateAdd = () => {
-                console.log('click button ');
-                console.log('before state: ', this.state.stateName);
+            // render 之前调用
+            componentWillMount(){
                 this.setState({
-                    stateName: this.state.stateName + 1 ,
-                }, () => {
-                    console.log('after state: ', this.state.stateName);
-                });
+                    stateName: '渲染前改变state'
+                })
             }
+            // render 渲染
+            // render 完成
+            componentDidMount(){
+
+            }
+
+            // Updating 阶段
+            //
+            // 组件的属性被父组件更改，将会调用此函数，亦可在此修改state以重新渲染组件
+            componentWillReceiveProps(){
+
+            }
+            // 返回 true 或 false，组件是否重新渲染
+            shouldComponentUpdate(){
+
+            }
+            // 重新渲染组件之前调用
+            componentWillUpdate(){
+
+            }
+            // render 重新渲染
+            // 重新渲染完成
+            componentDidUpdate(){
+
+            }
+
+            // Unmounting 阶段
+            //
+            // 组件使用完毕被销毁前
+            componentWillUnmount(){
+
+            }
+
+
             render(){
                 return (
                     <div>
-                        <h1>Component props: {this.props.propsName} </h1>
+                        <h1>Component props: {this.props.defProp} </h1>
                         <h1>Component state: {this.state.stateName} </h1>
-                        <button onClick={this.stateAdd}>state add</button>
                     </div>
                 )
             }
         }
 
         ReactDOM.render(
-            <PropsAndState propsName='自定义属性'/>,
+            <Lifecycle />,
             document.getElementById('mydiv')
         );
     </script>
