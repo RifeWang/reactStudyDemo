@@ -21,11 +21,5 @@ module.exports = {
                 }]
             },
         ]
-    },
-    devServer: {
-        // contentBase: path.join(__dirname, 'dist'), //告诉服务器从哪里提供内容，默认为当前工作目录
-        compress: true, //是否启用 gzip 压缩
-        port: 9000,
-        historyApiFallback: true, //使用 HTML5 History API 时，任意的404响应都会被替代为 index.html
     }
 };
