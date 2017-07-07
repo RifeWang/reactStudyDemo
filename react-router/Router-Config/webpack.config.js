@@ -6,7 +6,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, '/'),
-        publicPath: '/',
+        publicPath: '/', //打包后的文件在浏览器可访问的地址
     },
     module: {
         rules: [
@@ -39,12 +39,12 @@ module.exports = {
             index: '/index.html',
         },
         // host: "0.0.0.0", //外部可访问--CLI
-        proxy: {
-            "/tacos/bus": {
-                target: "http://localhost:9000",
-                pathRewrite: { '^/tacos': '' },
-            }
-        },
+        // proxy: {
+        //     "/tacos/bus": {
+        //         target: "http://localhost:9000",
+        //         pathRewrite: { '^/tacos': '/' },
+        //     }
+        // },
         
     }
 };
